@@ -1,7 +1,8 @@
 import axios from 'axios';
 
-export const fetchStars = async (_req, res, next) => {
+export async function fetchStars(req, res, next) {
   console.log(`${new Date().toISOString()} - fetching STAR data`);
+  
   const urlStars = 'https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+distinct+hostname,sy_snum,sy_pnum+from+ps+order+by+hostname&format=json';
   
   const data = await axios.get(urlStars)
@@ -11,5 +12,5 @@ export const fetchStars = async (_req, res, next) => {
       next();
     })
 
-  res.send(data);
+  res.status(200).send(data);
 };

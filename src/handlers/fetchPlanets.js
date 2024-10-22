@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const fetchPlanets = async (_req, res, next) => {
+export async function fetchPlanets (req, res, next) {
   console.log(`${new Date().toISOString()} - fetching PLANET data`);
   
   const urlPlanets = 'https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+distinct+pl_name,pl_letter,hostname+from+ps+order+by+pl_name&format=json';
@@ -12,5 +12,5 @@ export const fetchPlanets = async (_req, res, next) => {
       next();
     });
 
-  res.send(data);
+  res.status(200).send(data);
 };
