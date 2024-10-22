@@ -1,12 +1,13 @@
 import cors from 'cors';
-import express, { Router } from 'express';
+import express from 'express';
+import { createRouter } from './routes/router.js';
 // import { fetchNasaData } from './fetchNasaData.js';
-import { fetchStars } from './fetchStars.js';
-import { fetchPlanets } from './fetchPlanets.js';
+import { fetchStars } from './handlers/fetchStars.js';
+import { fetchPlanets } from './handlers/fetchPlanets.js';
 
 export const createServer = () => {
   const server = express();
-  const router = Router();
+  const router = createRouter();
 
   router.get('/stars', fetchStars);
 
