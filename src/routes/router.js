@@ -20,6 +20,8 @@ export const createRouter = (server) => {
   router.get('/planets', fetchPlanets);
   router.get('/health', healthHandler );
 
+  router.get('/favicon.ico', (_req, res) => res.status(204).send());
+
   router.use('*', (_req, res) => res.status(404).send('Wut?  404 - Not Found\n'));
 
   return server.use(router);
