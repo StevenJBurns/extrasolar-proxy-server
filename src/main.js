@@ -1,7 +1,7 @@
-import { loadEnvironmentVariables } from './loadEnvironmentVariables.js';
-import { createServer } from './createServer.js';
+import { loadEnvironmentVariables } from './server/loadEnvironmentVariables.js';
+import { createServer } from './server/createServer.js';
 
-(function() {
+function main() {
   console.clear();
 
   loadEnvironmentVariables();
@@ -13,4 +13,6 @@ import { createServer } from './createServer.js';
         console.log(` Server running on port ${process.env.SERVER_PORT}\n`)
       }
     );
-})();
+};
+
+main();

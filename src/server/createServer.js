@@ -5,7 +5,6 @@ import { createRouter } from './routes/router.js';
 export const createServer = () => {
   const server = createRouter(express());
 
-  server.disable('x-powered-by');
   server.set('port', process.env.SERVER_PORT ?? 3000);
   server.use([express.json(), express.urlencoded({ extended: false })]);
 
@@ -21,6 +20,8 @@ export const createServer = () => {
       'GET',
     ],
   }));
+
+  server.disable('x-powered-by');
 
   return server;
 };
