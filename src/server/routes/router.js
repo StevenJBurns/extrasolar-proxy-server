@@ -1,4 +1,5 @@
 import { Router } from "express";
+import * as Middleware from '../middleware/index.js';
 import * as Controllers from "../controllers/index.js";
 
 export const createRouter = (server) => {
