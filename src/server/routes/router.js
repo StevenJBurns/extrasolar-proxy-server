@@ -6,6 +6,10 @@ export const createRouter = (server) => {
   const router = new Router();
 
   const {
+    ignoreFavicon
+  } = Middleware;
+
+  const {
     basicLogger,
     fetchSolarSystems,
     fetchSolarSystemsById,
@@ -21,7 +25,7 @@ export const createRouter = (server) => {
   router.get('/planets', fetchPlanets);
   router.get('/health', healthHandler );
 
-  router.get('/favicon.ico', (_req, res) => res.status(204).send());
+  router.get('/favicon.ico', ignoreFavicon);
 
   router.use('*', (_req, res) => res.status(404).send('Wut?  404 - Not Found\n'));
 
