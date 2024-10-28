@@ -6,11 +6,11 @@ export const createRouter = (server) => {
   const router = new Router();
 
   const {
+    basicLogger,
     ignoreFavicon
   } = Middleware;
 
   const {
-    basicLogger,
     fetchSolarSystems,
     fetchSolarSystemsById,
     fetchStars,
