@@ -27,7 +27,7 @@ export const Mass = (value, unit = 'mass_e') => {
     if (typeof(newUnit) !== 'string')
       throw new TypeError('value must be a string');
     if (!validMassUnits.includes(newUnit))
-      throw new RangeError(`unit must be one of ${validUnits.join(', ')} `);  
+      throw new RangeError(`unit must be one of ${validMassUnits.join(', ')} `);  
   };
 
   function convert(newUnit) {
